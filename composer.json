@@ -1,5 +1,5 @@
 {
-    "name": "Extrablind/cakephp-media-plugin",
+    "name": "extrablind/cakephp-media-plugin",
     "description": "Media plugin for CakePHP : resize and display gallery and photos easily. Wrapper around Burzum plugins.",
     "type": "cakephp-plugin",
     "require": {
