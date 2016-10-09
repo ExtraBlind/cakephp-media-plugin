@@ -13,7 +13,6 @@
     "autoload": {
         "psr-4": {
             "Extrablind\\Media\\": "./plugins/Extrablind/Media/src",
-            "Extrablind\\Blog\\": "./plugins/Extrablind/Blog/src"
         }
     },
     "autoload-dev": {
