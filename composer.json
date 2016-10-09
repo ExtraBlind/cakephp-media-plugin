@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Extrablind\\Media\\": "./plugins/Extrablind/Media/src",
+            "Media\\": "src",
         }
     },
     "autoload-dev": {
