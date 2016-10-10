@@ -3,8 +3,6 @@
 namespace Extrablind\Media\Controller;
 
 use App\Controller\AppController as BaseController;
-use Burzum\Imagine\Lib\ImageProcessor;
-use Cake\Core\Plugin;
 
 class GalleriesController extends BaseController
 {
@@ -15,7 +13,7 @@ class GalleriesController extends BaseController
         $this->loadComponent('Burzum/Imagine.Imagine');
     }
 
-    public function display($params = null)
+    public function index($params = null)
     {
         return;
     }

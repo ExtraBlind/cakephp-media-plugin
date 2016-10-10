@@ -4,7 +4,6 @@ namespace Extrablind\Media\Controller;
 
 use App\Controller\AppController as BaseController;
 use Burzum\Imagine\Lib\ImageProcessor;
-use Cake\Core\Plugin;
 use Cake\Network\Exception\NotFoundException;
 
 class MediaController extends BaseController

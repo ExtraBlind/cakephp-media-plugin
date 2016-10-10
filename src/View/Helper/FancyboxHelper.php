@@ -6,42 +6,58 @@ use Extrablind\Media\View\Helper\ImagineHelper;
 
 class FancyboxHelper extends ImagineHelper
 {
-    public $helpers = [
+    public $helpers                  = [
         'Extrablind/Media.Imagine',
         'Extrablind/Media.Gallery',
         'Html'
     ];
+    private $defaultThumbnailOptions = [
+        'squareCenterCrop' => [
+            'size' => 200
+        ]
+    ];
+    private $defaultBigOptions       = [
+        'thumbnail' => [
+            'height' => 2000,
+            'width'  => 2000
+        ]
+    ];
 
-    public function display($name, $thumbOption = [], $bigsOptions = [])
+    private function generateUniqueId()
     {
-        if (empty($thumbOption)) {
+        return md5(rand(0, 999).microtime());
+    }
+
+    public function display($images, $thumbOptions = [], $bigsOptions = [])
+    {
+        $bigsOptions  = array_merge($this->defaultBigOptions, $bigsOptions);
+        $thumbOptions = array_merge($this->defaultThumbnailOptions, $thumbOptions);
+
+        if (empty($images)) :
+            return '';
+        endif;
+
+        $rel = "fancyboxGallery_{$this->generateUniqueId()}";
+
+        # Build first img
+        $firstImgUrl = $this->Imagine->url($images[0], false, $thumbOptions);
+        $firstImg    = $this->Html->image($firstImgUrl);
+        $return      = $this->Html->link($firstImg, $images[0],
             [
-                'squareCenterCrop' => [
-                    'size' => 200
-                ]
-            ];
+            'class'  => 'fancybox',
+            'rel'    => $rel,
+            'escape' => false
+        ]);
+        array_shift($images);
+
+        # Others images as link
+        foreach ($images as $image) {
+            $return .= $this->Html->link('', $this->Imagine->url($image, false, $bigsOptions),
+                [
+                'class' => 'fancybox',
+                'rel'   => $rel,
+            ]);
         }
-        if (empty($bigsOptions)) {
-            [
-                'thumbnail' => [
-                    'height' => 2000,
-                    'width'  => 2000
-                ]
-            ];
-        }
-        $first   = $this->Gallery->getImagePathForGalleryByIndex($name, 0);
-        $first   = $this->Imagine->url($first, false, $thumbOption);
-        $options = [
-            'thumbnail' => [
-                'height' => 1000,
-                'width'  => 1000
-            ]
-        ];
-        $imgs    = ($this->Gallery->getUrls($name, $bigsOptions));
-        echo '<a class="fancybox" href = "'.$imgs[0].'" rel = "fancyboxGallery_'.$name.'">'.$this->Html->image($first).'</a>';
-        array_shift($imgs);
-        foreach ($imgs as $link) {
-            echo '<a class="fancybox" href = "'.$link.'" rel = "fancyboxGallery_'.$name.'"></a>';
-        }
+        return $return;
     }
 }

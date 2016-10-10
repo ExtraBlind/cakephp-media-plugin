@@ -13,7 +13,7 @@ class ImagineHelper extends BurzumImagineHelper
         if (is_string($url)) {
             $url = array_merge([
                 'plugin'     => 'Extrablind/Media',
-                'admin'      => false,
+                'prefix'     => false,
                 'controller' => 'media',
                 'action'     => 'image'],
                 # Add urlencode for apache servers

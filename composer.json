@@ -1,5 +1,5 @@
 {
-    "name": "extrablind/cakephp-media-plugin",
+    "name": "Extrablind/cakephp-media-plugin",
     "description": "Media plugin for CakePHP : resize and display gallery and photos easily. Wrapper around Burzum plugins.",
     "type": "cakephp-plugin",
     "require": {
@@ -12,13 +12,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Extrablind\\Media\\": "src"
+            "Extrablind\\Media\\": "./plugins/Extrablind/Media/src",
+            "Extrablind\\Blog\\": "./plugins/Extrablind/Blog/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Extrablind\\Media\\Test\\": "tests",
-            "Cake\\Test\\": "/vendor/cakephp/cakephp/tests"
+            "Media\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     }
 }
