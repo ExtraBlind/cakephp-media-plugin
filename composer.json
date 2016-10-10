@@ -2,6 +2,9 @@
     "name": "Extrablind/cakephp-media-plugin",
     "description": "Media plugin for CakePHP : resize and display gallery and photos easily. Wrapper around Burzum plugins.",
     "type": "cakephp-plugin",
+	"keywords": ["cakephp","media","galleries","image", "fancybox"],
+	"homepage": "https://github.com/ExtraBlind/cakephp-media-plugin/",
+	"license": "Beerware",
     "require": {
         "php": ">=5.4.16",
         "cakephp/cakephp": "~3.0",
