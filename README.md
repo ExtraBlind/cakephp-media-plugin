@@ -13,8 +13,9 @@ composer require extrablind/cakephp-media-plugin
 Add to your bootstrap.php
 Plugin::load('Extrablind/Media', [ 'routes' => true]);
 
+
+
 Add to your app.php
-> The dir to the galleries folders
+
 'Extrablind.Media.galleries.dir' => WWW_ROOT . 'img/galleries/',
-> A random string
-'Imagine.salt' => 'whatever you want'
+'Imagine.salt' => 'A random string'
